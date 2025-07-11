@@ -1,5 +1,5 @@
 import express from 'express';
-import { register, login } from '../controllers/auth.controller.js';
+import { register, login, refreshToken } from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
@@ -69,5 +69,30 @@ router.post('/register', register);
  *         description: Sai email hoặc mật khẩu
  */
 router.post('/login', login);
+
+/**
+ * @swagger
+ * /api/auth/refresh-token:
+ *   post:
+ *     summary: Làm mới token truy cập
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - refreshToken
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Token được làm mới thành công
+ *       401:
+ *         description: Token làm mới không hợp lệ
+ */
+router.post('/refresh-token', refreshToken);
 
 export default router;

@@ -62,3 +62,27 @@
  *       401:
  *         description: Sai email hoặc mật khẩu
  */
+
+/**
+ * @swagger
+ * /api/auth/refresh-token:
+ *   post:
+ *     summary: Làm mới token truy cập
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - refreshToken
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Token được làm mới thành công
+ *       401:
+ *         description: Token làm mới không hợp lệ
+ */
