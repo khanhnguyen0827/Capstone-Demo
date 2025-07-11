@@ -1,4 +1,5 @@
 import express from 'express';
+import protect from '../common/middlewares/protect.middleware.js';
 import {
   getUserDetails,
   getUserSavedImages,
@@ -52,7 +53,7 @@ const router = express.Router();
  *       404:
  *         description: Người dùng không tồn tại
  */
-router.get('/users/:user_id', getUserDetails);
+router.get('/users/:user_id', protect, getUserDetails);
 
 /**
  * @swagger
@@ -101,7 +102,7 @@ router.get('/users/:user_id', getUserDetails);
  *                         type: string
  *                         format: date-time
  */
-router.get('/users/:user_id/saved-images', getUserSavedImages);
+router.get('/users/:user_id/saved-images', protect, getUserSavedImages);
 
 /**
  * @swagger
@@ -140,7 +141,7 @@ router.get('/users/:user_id/saved-images', getUserSavedImages);
  *                     type: string
  *                     format: date-time
  */
-router.get('/users/:user_id/created-images', getUserCreatedImages);
+router.get('/users/:user_id/created-images', protect, getUserCreatedImages);
 
 /**
  * @swagger
@@ -161,6 +162,6 @@ router.get('/users/:user_id/created-images', getUserCreatedImages);
  *       404:
  *         description: Hình ảnh không tồn tại hoặc không thể xóa
  */
-router.delete('/images/:image_id', deleteImage);
+router.delete('/images/:image_id', protect, deleteImage);
 
 export default router;

@@ -17,8 +17,13 @@ app.use(express.json());
 // Tích hợp swagger-ui để hiển thị tài liệu API
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+import { handleErr } from './src/common/helpers/handle-err.helper.js';
+
 // Sử dụng router chính
 app.use('/', rootRouter);
+
+// Middleware xử lý lỗi toàn cục
+// app.use(handleErr);
 
 async function checkDatabaseConnection() {
   try {
