@@ -1,11 +1,4 @@
 
--- ----------------------------------------------------------------
--- Dự án Capstone - API Quản lý Hình ảnh
--- Script đầy đủ cho Database MySQL
--- ----------------------------------------------------------------
-
--- Bước 1: Tạo cơ sở dữ liệu (nếu chưa tồn tại)
--- Xóa database cũ trước để đảm bảo thiết lập sạch mỗi khi chạy script.
 DROP DATABASE IF EXISTS db_capstone_image;
 CREATE DATABASE db_capstone_image;
 USE db_capstone_image;
